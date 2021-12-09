@@ -1,5 +1,7 @@
 # Acquire tiptap extensions through dynamic imports
 
+**See bottom of the page for latest updates**
+
 This vanilla TypeScript project shows how (remote) tiptap modules can be acquired through dynamic imports.
 These dynamically loaded tiptap modules, themselves are depending on other modules (most noteably `@tiptap/core`).
 To satisfy these (secondary) dependencies, used by dynamically imported modules, this project uses **importmaps**.
@@ -43,3 +45,44 @@ This will be the directory, serviced through `LiveServer` from which dynamic imp
 
 After this you should see a tiptap `Editor` window.
 You can also check the browser DevTools network tap, to see what all is loaded.
+
+## Recent Updates
+
+** Update December 10th, 2021 **
+While revisiting this setup, looked again at the reason why initially we used _shim mode_.
+In an other projects, I was only able to get stuff working with that mode (in dev).
+The problem with that though is that the entry point `index.html` no longer is processed by `vitejs`.
+The reason for this is that the module declaration for shim mode looks something like this:
+
+```
+      <script type="module-shim" src="/dist/main.js"></script>
+```
+
+After having another go at using _polyfill mode_, I noticed that in **this** particular project,
+that doesn't use `vitejs`, stuff still works.
+
+**Notes**
+1. In Google Chrome, no additional console error will appear
+2. In FF, an additional console error will appear (which can be ignored, according to the manual) \
+   The message that is seen is: `Uncaught TypeError: Error resolving module specifier “@tiptap/core”. Relative module specifiers must start with “./”, “../” or “/”.` \
+   See [es-module-shims](https://www.npmjs.com/package/es-module-shims) for additional information.
+
+For this the `index.html` looks something like this:
+
+```
+<html>
+  <head>
+     <script type="importmap">
+       // Your import map statements here
+     </script>
+     ...
+  <head>
+  <body>
+     ...
+     <script type="module" src="/src/main.ts"></script>
+     ...
+  </body>
+</html>
+```
+
+Will do another attempt in a project that **does** use `vitejs`.
