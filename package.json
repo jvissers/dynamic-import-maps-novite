@@ -1,0 +1,18 @@
+{
+  "name": "no-bundler",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc",
+    "live": "live-server --port=5501",
+    "clean": "rimraf ./dist && rimraf ./tsconfig.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@tiptap/core": "^2.0.0-beta.151",
+    "@tiptap/extension-document": "^2.0.0-beta.15",
+    "@tiptap/extension-paragraph": "^2.0.0-beta.23",
+    "@tiptap/extension-text": "^2.0.0-beta.15",
+    "live-server": "^1.2.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.2"
+  }
+}
