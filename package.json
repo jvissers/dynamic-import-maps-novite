@@ -4,7 +4,7 @@
   "scripts": {
     "build": "tsc",
     "copy": "copyfiles -V -f ./node_modules/w3c-keyname/index.es.js ./dist/js/w3c-keyname && copyfiles -V -f ./node_modules/orderedmap/index.es.js ./dist/js/orderedmap && copyfiles -V --up 1 ./node_modules/prosemirror*/dist/index.es.js ./dist/js && copyfiles -V --up 1 ./node_modules/@tiptap/*/dist/*.esm.js ./dist/js",
-    "live": "live-server --port=5501",
+    "live": "live-server --port=5501 --ignorePattern=.*\\.ts",
     "clean": "rimraf ./dist && rimraf ./tsconfig.tsbuildinfo"
   },
   "devDependencies": {
