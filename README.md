@@ -86,3 +86,8 @@ For this the `index.html` looks something like this:
 ```
 
 Will do another attempt in a project that **does** use `vitejs`.
+
+
+** Update December 10th, 2021 **
+Checking the above in the project that **does** use `vitejs` shows that this does not work in FF, Chrome dev mode nor FF production mode.
+Only Chrome production mode works in that setup.
