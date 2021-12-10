@@ -21,17 +21,33 @@
           "w3c-keyname": "/dist/js/w3c-keyname/index.es.js",
           "@tiptap/extension-document": "/dist/js/@tiptap/extension-document/dist/tiptap-extension-document.esm.js",
           "@tiptap/extension-paragraph": "/dist/js/@tiptap/extension-paragraph/dist/tiptap-extension-paragraph.esm.js",
-          "@tiptap/extension-text": "/dist/js/@tiptap/extension-text/dist/tiptap-extension-text.esm.js"
+          "@tiptap/extension-text": "/dist/js/@tiptap/extension-text/dist/tiptap-extension-text.esm.js",
+          "vue": "https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/vue.esm-browser.js"
         }
       }
     </script>
-    <title>importmaps no bundler</title>
+    <style>
+      #editor {
+        border: dashed 1px coral;
+      }
+      #vue {
+        border: dashed 1px burlywood;
+      }
+      pre {
+        border: dashed 1px goldenrod;
+      }
+    </style>
+    <title>TS, dynamic import & importmap</title>
   </head>
   <body>
     <div id="app"></div>
+    <h5>tiptap Editor area (edit it)</h5>
     <div id="editor"></div>
     <hr />
-    <h4>Content Model</h4>
+    <h5>Vue Component Check (click it)</h5>
+    <div id="vue"></div>
+    <hr />
+    <h5>Active Content Model (watch it)</h5>
     <pre>
       <code class="language-json"></code>
     </pre>
