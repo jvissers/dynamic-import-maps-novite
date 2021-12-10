@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "tsc",
+    "copy": "copyfiles -V -f ./node_modules/w3c-keyname/index.es.js ./dist/js/w3c-keyname && copyfiles -V -f ./node_modules/orderedmap/index.es.js ./dist/js/orderedmap && copyfiles -V --up 1 ./node_modules/prosemirror*/dist/index.es.js ./dist/js && copyfiles -V --up 1 ./node_modules/@tiptap/*/dist/*.esm.js ./dist/js",
     "live": "live-server --port=5501",
     "clean": "rimraf ./dist && rimraf ./tsconfig.tsbuildinfo"
   },
@@ -11,8 +12,18 @@
     "@tiptap/extension-document": "^2.0.0-beta.15",
     "@tiptap/extension-paragraph": "^2.0.0-beta.23",
     "@tiptap/extension-text": "^2.0.0-beta.15",
+    "copyfiles": "^2.4.1",
     "live-server": "^1.2.1",
+    "orderedmap": "^1.1.1",
+    "prosemirror-commands": "^1.1.12",
+    "prosemirror-keymap": "^1.1.5",
+    "prosemirror-model": "^1.15.0",
+    "prosemirror-schema-list": "^1.1.6",
+    "prosemirror-state": "^1.3.4",
+    "prosemirror-transform": "^1.3.3",
+    "prosemirror-view": "^1.23.3",
     "rimraf": "^3.0.2",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "w3c-keyname": "^2.2.4"
   }
 }

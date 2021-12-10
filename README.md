@@ -94,3 +94,9 @@ Only Chrome production mode works in that setup.
 ** Update December 10th, 2021 **
 The problem with CDN import maps of tiptap apparently aren't support in production.
 See detail of this [skypack issue](https://github.com/skypackjs/skypack-cdn/issues/159)
+
+A way to mitigate the above issue, is to use **local** sources instead of CDN.
+For this purpose all necessary dependencies are installed locally as **dev dependencies**.
+Subsequently through `pnpm run copy` the required ES6 module files are copied to `/dist/js`.
+And the `index.html` importmap is changed accordingly.
+Now running `pnpm run live` still works, resolving dependencies locally instead of through CDN.
