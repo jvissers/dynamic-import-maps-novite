@@ -9,20 +9,52 @@
     <script type="importmap">
       {
         "imports": {
-          "@tiptap/core": "https://cdn.skypack.dev/@tiptap/core?min",
-          "@tiptap/extension-document": "https://cdn.skypack.dev/@tiptap/extension-document?min",
-          "@tiptap/extension-paragraph": "https://cdn.skypack.dev/@tiptap/extension-paragraph?min",
-          "@tiptap/extension-text": "https://cdn.skypack.dev/@tiptap/extension-text?min"
+          "@tiptap/core": "/dist/js/@tiptap/core/dist/tiptap-core.esm.js",
+          "prosemirror-state": "/dist/js/prosemirror-state/dist/index.es.js",
+          "prosemirror-transform": "/dist/js/prosemirror-transform/dist/index.es.js",
+          "prosemirror-commands": "/dist/js/prosemirror-commands/dist/index.es.js",
+          "prosemirror-model": "/dist/js/prosemirror-model/dist/index.es.js",
+          "orderedmap": "/dist/js/orderedmap/index.es.js",
+          "prosemirror-schema-list": "/dist/js/prosemirror-schema-list/dist/index.es.js",
+          "prosemirror-view": "/dist/js/prosemirror-view/dist/index.es.js",
+          "prosemirror-keymap": "/dist/js/prosemirror-keymap/dist/index.es.js",
+          "w3c-keyname": "/dist/js/w3c-keyname/index.es.js",
+          "@tiptap/extension-document": "/dist/js/@tiptap/extension-document/dist/tiptap-extension-document.esm.js",
+          "@tiptap/extension-paragraph": "/dist/js/@tiptap/extension-paragraph/dist/tiptap-extension-paragraph.esm.js",
+          "@tiptap/extension-text": "/dist/js/@tiptap/extension-text/dist/tiptap-extension-text.esm.js",
+          "vue": "https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/vue.esm-browser.js",
+          "htm": "https://unpkg.com/htm?module"
         }
       }
     </script>
-    <title>importmaps no bundler</title>
+    <style>
+      #editor {
+        padding: 2px 10px;
+        border: dashed 2px coral;
+        border-radius: 3px;
+      }
+      #vue {
+        padding: 2px 10px;
+        border: dashed 2px burlywood;
+        border-radius: 3px;
+      }
+      pre {
+        padding: 2px 10px;
+        border: dashed 2px darkolivegreen;
+        border-radius: 3px;
+      }
+    </style>
+    <title>TS, dynamic import & importmap</title>
   </head>
   <body>
     <div id="app"></div>
+    <h4>tiptap Editor area (edit it)</h4>
     <div id="editor"></div>
     <hr />
-    <h4>Content Model</h4>
+    <h4>Vue Component Check (click it)</h4>
+    <div id="vue"></div>
+    <hr />
+    <h4>Active Content Model (watch it)</h4>
     <pre>
       <code class="language-json"></code>
     </pre>

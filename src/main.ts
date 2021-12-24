@@ -8,13 +8,24 @@ import { Document } from '@tiptap/extension-document';
 import { Paragraph } from '@tiptap/extension-paragraph';
 import { Text } from '@tiptap/extension-text';
 
+// Some utility function
 import useContentModel from './utils/useContentModel.js';
+
+// Vue related stuff
+import { createApp, h } from 'vue';
+import App from './vue/App.js';
 
 // Arbritary internal module
 helloWorld();
 
 // Some module to visualize content model of the editor
 const { showContentModel } = useContentModel();
+
+// Some Vue application
+const app = createApp({
+  render: () => h(App),
+});
+app.mount(`#vue`);
 
 // dynamic import that pulls in a remote tiptap extension
 const editorSlot = document.querySelector<HTMLDivElement>('#editor')!;
@@ -29,7 +40,7 @@ import(`http://127.0.0.1:5501/${intro}`).then((m) => {
 
     onCreate({ editor }) {
       console.log('Document schema: ', JSON.stringify(editor.schema.spec, null, 2));
-      console.log('Loaded document valid =', editor.state.doc.check() === undefined);
+      console.log('Loaded document valid:', editor.state.doc.check() === undefined);
       showContentModel(editor);
     },
 

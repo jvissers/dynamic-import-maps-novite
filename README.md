@@ -94,3 +94,23 @@ Only Chrome production mode works in that setup.
 ** Update December 10th, 2021 **
 The problem with CDN import maps of tiptap apparently aren't support in production.
 See detail of this [skypack issue](https://github.com/skypackjs/skypack-cdn/issues/159)
+
+A way to mitigate the above issue, is to use **local** sources instead of CDN.
+For this purpose all necessary dependencies are installed locally as **dev dependencies**.
+Subsequently through `pnpm run copy` the required ES6 module files are copied to `/dist/js`.
+And the `index.html` importmap is changed accordingly.
+Now running `pnpm run live` still works, resolving dependencies locally instead of through CDN.
+
+** Update December 10th, 2021 **
+A result of this vanilla setup, where no bundler (like `vitejs`) is used, is that it becomes more challenging to work with some frameworks.
+For instance **Vue3** uses _SIFC_ (SIngle File Component) mechanism.
+Basically this a single file where `template`, `script` and `styles` are collecated in a single `.vue` file.
+It is possible to use Vue without this SIFC approach, whilst still working with the latest version capabilities (e.g. Composition API).
+The fact of the matter is, is that working with these files is indeed a bit more challenging.
+In this update, I've added a Vue component in `vue`, which uses a CDN reference in the importmap.
+Note that there is a tool called `htm` that might make working with these components (especially templates) somewhat easier.
+
+** Update December 24th, 2021 **
+As the trail to use vitejs combined with importmaps and dynamic imports seem to get colder, looked into `htm`.
+In this update I actually use `htm` to create the Vue `App` component.
+For additional information check [the npm page](https://www.npmjs.com/package/htm).

@@ -8,7 +8,7 @@ export default () => {
    * @param querySelector a selector for where to put the content model in (defaults to `pre code`).
    */
   const showContentModel = (editor: Editor, querySelector: string = 'pre code'): void => {
-    document.querySelector(querySelector)!.textContent = JSON.stringify(editor.getJSON(), null, 2);
+    document.querySelector(querySelector)!.textContent = '\n' + JSON.stringify(editor.getJSON(), null, 2);
   };
 
   return {
