@@ -109,3 +109,8 @@ It is possible to use Vue without this SIFC approach, whilst still working with 
 The fact of the matter is, is that working with these files is indeed a bit more challenging.
 In this update, I've added a Vue component in `vue`, which uses a CDN reference in the importmap.
 Note that there is a tool called `htm` that might make working with these components (especially templates) somewhat easier.
+
+** Update December 24th, 2021 **
+As the trail to use vitejs combined with importmaps and dynamic imports seem to get colder, looked into `htm`.
+In this update I actually use `htm` to create the Vue `App` component.
+For additional information check [the npm page](https://www.npmjs.com/package/htm).

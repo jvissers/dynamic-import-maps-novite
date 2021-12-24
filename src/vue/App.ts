@@ -1,4 +1,5 @@
-import { h, reactive } from 'vue';
+import { reactive } from 'vue';
+import html from '../utils/html.js';
 
 export default {
   setup() {
@@ -10,13 +11,6 @@ export default {
       state.count++;
     }
 
-    return () =>
-      h(
-        'div',
-        {
-          onClick: increment,
-        },
-        state.count,
-      );
+    return () => html`<div onclick=${increment}>${state.count}</div>`;
   },
 };
