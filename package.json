@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && concurrently \"tsc -w\" \"live-server --port=5501\"",
-    "copy": "copyfiles -V -f ./node_modules/w3c-keyname/index.es.js ./dist/js/w3c-keyname && copyfiles -V -f ./node_modules/orderedmap/index.es.js ./dist/js/orderedmap && copyfiles -V --up 1 ./node_modules/prosemirror*/dist/index.es.js ./dist/js && copyfiles -V --up 1 ./node_modules/@tiptap/*/dist/*.esm.js ./dist/js",
-    "clean": "rimraf ./dist && rimraf ./tsconfig.tsbuildinfo"
+    "dev": "concurrently \"tsc -w\" \"live-server --port=5501\"",
+    "copy": "copyfiles -V -f ./node_modules/w3c-keyname/index.es.js ./dist/js/w3c-keyname ; copyfiles -V -f ./node_modules/orderedmap/index.es.js ./dist/js/orderedmap ; copyfiles -V --up 1 ./node_modules/prosemirror*/dist/index.es.js ./dist/js ; copyfiles -V --up 1 ./node_modules/@tiptap/*/dist/*.esm.js ./dist/js",
+    "clean": "rimraf ./dist ; rimraf ./tsconfig.tsbuildinfo"
   },
   "devDependencies": {
     "@babel/types": "^7.16.0",
