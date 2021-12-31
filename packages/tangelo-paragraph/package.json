@@ -1,0 +1,29 @@
+{
+  "name": "@tangelo/tangelo-paragraph",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc && rollup -c rollup.config.js",
+    "clean": "rimraf ./dist && rimraf ./out-tsc && rimraf ./tsconfig.tsbuildinfo",
+    "copy": "copyfiles -V ./dist/tangelo-paragraph.esm.js ../../remote-extensions/tangelo-paragraph"
+  },
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/tangelo-paragraph.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tangelo-paragraph.esm.js"
+    }
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.1.2",
+    "@tiptap/core": "^2.0.0-beta.159",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.62.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@tiptap/extension-paragraph": "^2.0.0-beta.23"
+  }
+}

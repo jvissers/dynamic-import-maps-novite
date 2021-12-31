@@ -114,3 +114,16 @@ Note that there is a tool called `htm` that might make working with these compon
 As the trail to use vitejs combined with importmaps and dynamic imports seem to get colder, looked into `htm`.
 In this update I actually use `htm` to create the Vue `App` component.
 For additional information check [the npm page](https://www.npmjs.com/package/htm).
+
+** Update December 31th, 2021 **
+Moved along with the approach that no longer uses vitejs.
+Have a look at [this issue](https://github.com/vitejs/vite/discussions/6246) for some vitejs background about this.
+Additionally [this](https://github.com/guybedford/es-module-shims/issues/243) was raised against `es-module-shim`.
+
+In this update, the direct tiptap plugins `document`, `paragraph` and `text`, initially loaded via importmaps are removed.
+Instead these plugins are now wrapped in `tangelo` equivalents (see _packages_ folder).
+Effectively what this means, is that through some `rollup` configuration (i.e. nodeResolve) we reuse tiptap code.
+Additionally the file `scenario-1.json` is introduced.
+This is an example for how the editor can be made fully data-driven.
+That file holds meta-data that specifies the extensions/plugins that are required.
+Additionally it also holds the actual content of what the editor needs to present.

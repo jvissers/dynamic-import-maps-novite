@@ -1,4 +1,5 @@
 import { defineConfig } from 'rollup';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default defineConfig({
     external: [
@@ -7,6 +8,7 @@ export default defineConfig({
     input: './out-tsc/index.js',
     output: {
         dir: './dist',
-        entryFileNames: 'extension-introduction.esm.js'
-    }
+        entryFileNames: 'tangelo-text.esm.js'
+    },
+    plugins: [nodeResolve()]
 });

@@ -1,0 +1,29 @@
+{
+  "name": "@tangelo/tangelo-document",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc && rollup -c rollup.config.js",
+    "clean": "rimraf ./dist && rimraf ./out-tsc && rimraf ./tsconfig.tsbuildinfo",
+    "copy": "copyfiles -V ./dist/tangelo-document.esm.js ../../remote-extensions/tangelo-document"
+  },
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/tangelo-document.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tangelo-document.esm.js"
+    }
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.1.2",
+    "@tiptap/core": "^2.0.0-beta.159",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.62.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@tiptap/extension-document": "^2.0.0-beta.15"
+  }
+}
