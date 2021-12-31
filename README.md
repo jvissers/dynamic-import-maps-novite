@@ -127,3 +127,7 @@ Additionally the file `scenario-1.json` is introduced.
 This is an example for how the editor can be made fully data-driven.
 That file holds meta-data that specifies the extensions/plugins that are required.
 Additionally it also holds the actual content of what the editor needs to present.
+
+**Note** by no longer loading tiptap specific extensions from the importmap, and instead wrapping them in Tangelo counterparts,
+we implicitly mitigate the (perceived?) issue that exists in loading tiptap extensions from CDN.
+This means that the importmap as specified in index.html _might_ actually work with a fully CDN based declaration.
